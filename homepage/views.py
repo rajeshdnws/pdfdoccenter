@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import datetime  
 from django.template import loader  
+from .models import Cmspage
 
 # Create your views here.
 from django.http import HttpResponse  
@@ -10,13 +11,9 @@ def hello(request):
 
 
 def index(request):  
-    now = datetime.datetime.now()  
-    name={
-        'user':'Rajesh',
-         'date':now
-    }
+    homedata = Cmspage.objects.get(slug='home')
     template = loader.get_template('home.html') # getting our template  
-    return HttpResponse(template.render(name))  
+    return HttpResponse(template.render({'page': homedata}, request))  
 
 def about(request):  
     now = datetime.datetime.now()  

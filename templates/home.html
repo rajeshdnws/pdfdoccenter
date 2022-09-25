@@ -1,16 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}  
 {% block title %}
-This is index title
+{{page.meta_title}}
 {% endblock title %}
 
+{% block description %}
+{{page.meta_desc}}
+{% endblock description %}
+
+{% block keywords %}
+{{page.meta_keyword}}
+{% endblock keywords %}
 {% block content %}
 <!-- ======= Hero Section ======= -->
+<style>
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url(/media/{{page.banner}}) top right;
+    background-size: cover;
+}
+</style>
+<main id="main">
+
 <section id="hero" class="d-flex align-items-center">
     <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-      <h1>{{ user }} Adams</h1>
-      <h2>I'm a professional illustrator from San Francisco</h2>
-      <a href="about.html" class="btn-about">About Me</a>
+      <h1>{{ page.title }}</h1>
+      <h2>{{ page.image_name }}</h2>
+      <a href="/aboutus" class="btn-about">About Me</a>
     </div>
   </section><!-- End Hero -->
+  <section id="home" class="homepage">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>details page home page</h2>
+        {{page.description}}
+      </div>
+      </div>
+      </section>
+  </main>
+
   {% endblock content %}

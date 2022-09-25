@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  {% block title %}Base title{% endblock %}
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+   <title> {% block title %}Base title{% endblock %}</title>
+  <meta content="" name="description" content="{% block description %}Base description{% endblock %}">
+  <meta content="" name="keywords" content="{% block keywords %}Base keywords{% endblock %}">
 
   <!-- Favicons -->
   <link href="{% static "assets/img/favicon.png" %}" rel="icon">
