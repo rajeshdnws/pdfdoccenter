@@ -1,7 +1,7 @@
 from email.policy import default
 from django.db import models
 from django.template.defaultfilters import slugify
-from tinymce import models as tinymce_models
+from ckeditor.fields import RichTextField 
 
 # Create your models here.
 class Cmspage(models.Model):
@@ -9,7 +9,7 @@ class Cmspage(models.Model):
     slug=models.SlugField(max_length=100,allow_unicode=True)
     image_name = models.CharField(max_length=140, blank=True,verbose_name="Banner alt")
     banner = models.ImageField(upload_to='images/',default='')
-    description = tinymce_models.HTMLField()
+    description = RichTextField()
     meta_title=models.CharField(max_length=200,blank=True,verbose_name="Meta Title")
     meta_desc=models.CharField(max_length=200,blank=True,verbose_name="Meta Description")
     meta_keyword=models.CharField(max_length=200,blank=True,verbose_name="Meta Keyword")
